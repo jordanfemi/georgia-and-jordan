@@ -4,30 +4,30 @@ import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 
 const icons: Record<string, React.ReactNode> = {
   sparkle: (
-    <svg viewBox="0 0 24 24" fill="white" className="w-5 h-5">
+    <svg viewBox="0 0 24 24" fill="#C4714A" className="w-5 h-5">
       <path d="M12 2l1.5 6.5L20 10l-6.5 1.5L12 18l-1.5-6.5L4 10l6.5-1.5z" />
     </svg>
   ),
   heart: (
-    <svg viewBox="0 0 24 24" fill="white" className="w-5 h-5">
+    <svg viewBox="0 0 24 24" fill="#C4714A" className="w-5 h-5">
       <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
     </svg>
   ),
   globe: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" className="w-5 h-5">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#C4714A" strokeWidth="1.8" className="w-5 h-5">
       <circle cx="12" cy="12" r="10" />
       <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
     </svg>
   ),
   baby: (
-    <svg viewBox="0 0 24 24" fill="white" className="w-5 h-5">
+    <svg viewBox="0 0 24 24" fill="#C4714A" className="w-5 h-5">
       <circle cx="12" cy="5" r="3" />
       <path d="M5 22v-3a7 7 0 0 1 14 0v3" />
       <path d="M8 22v-1a4 4 0 0 1 8 0v1" />
     </svg>
   ),
   ring: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" className="w-5 h-5">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#C4714A" strokeWidth="1.8" className="w-5 h-5">
       <circle cx="12" cy="14" r="7" />
       <path d="M9 14a3 3 0 0 1 6 0" />
       <path d="M8.5 7.5 9.5 3h5l1 4.5" />
@@ -35,7 +35,7 @@ const icons: Record<string, React.ReactNode> = {
     </svg>
   ),
   rings: (
-    <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" className="w-5 h-5">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#C4714A" strokeWidth="1.8" className="w-5 h-5">
       <circle cx="8" cy="14" r="5" />
       <circle cx="16" cy="14" r="5" />
       <path d="M11 14a3 3 0 0 1 2 0" />
@@ -102,7 +102,7 @@ function TimelineCard({
             initial={{ scale: 0 }}
             animate={isInView ? { scale: 1 } : {}}
             transition={{ type: 'spring', stiffness: 300, damping: 20, delay: 0.1 }}
-            className="w-10 h-10 rounded-full bg-terracotta flex items-center justify-center text-base shadow-md"
+            className="w-10 h-10 rounded-full bg-cream border border-champagne flex items-center justify-center text-base shadow-md"
             aria-hidden="true"
           >
             {icons[event.icon]}
@@ -157,7 +157,7 @@ function TimelineCard({
             initial={{ scale: 0, rotate: -20 }}
             animate={isInView ? { scale: 1, rotate: 0 } : {}}
             transition={{ type: 'spring', stiffness: 280, damping: 18, delay: 0.15 }}
-            className="w-12 h-12 rounded-full bg-terracotta flex items-center justify-center text-xl shadow-md z-10 relative"
+            className="w-12 h-12 rounded-full bg-cream border border-champagne flex items-center justify-center text-xl shadow-md z-10 relative"
             aria-hidden="true"
           >
             {icons[event.icon]}
