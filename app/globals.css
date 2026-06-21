@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream text-espresso;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-terracotta;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display), Georgia, serif;
+  }
+}
+
+/* Lightbox theme overrides */
+:root {
+  --yarl__color_backdrop: rgba(44, 26, 14, 0.95);
+  --yarl__color_button: #F2D5C8;
+  --yarl__color_button_active: #C4714A;
+}
