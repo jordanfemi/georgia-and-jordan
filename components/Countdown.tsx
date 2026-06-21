@@ -113,7 +113,7 @@ export default function Countdown() {
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
         >
-          21st August 2026 &nbsp;·&nbsp; [Venue — TBC]
+          Friday 21st August 2026 &nbsp;·&nbsp; St Peter's Church, Woking
         </motion.p>
 
         <motion.div

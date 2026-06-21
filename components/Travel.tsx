@@ -1,28 +1,52 @@
 'use client';
 import { motion } from 'framer-motion';
 
-const hotels = [
+const venues = [
   {
-    name: '[Hotel Name — EDIT ME]',
-    distance: '[X miles from venue]',
-    desc: '[EDIT ME] Brief note about this hotel — great for families, walking distance, etc.',
+    label: 'Ceremony',
+    name: "St Peter's Church",
+    address: 'Church Street, Woking, GU22 9JF',
+    time: 'Arrival from 12:30pm · Ceremony at 1:00pm',
+    mapSrc: 'https://maps.google.com/maps?q=St+Peters+Church+Church+Street+Woking+GU22+9JF&output=embed',
   },
   {
-    name: '[Hotel Name — EDIT ME]',
-    distance: '[X miles from venue]',
-    desc: '[EDIT ME] Brief note about this hotel.',
-  },
-  {
-    name: '[Hotel Name — EDIT ME]',
-    distance: '[X miles from venue]',
-    desc: '[EDIT ME] Budget-friendly option nearby.',
+    label: 'Reception',
+    name: 'Pyrford Lakes',
+    address: 'Woking, GU22 8XR',
+    time: 'Reception to follow the ceremony',
+    mapSrc: 'https://maps.google.com/maps?q=Pyrford+Lakes+Woking+GU22+8XR&output=embed',
   },
 ];
 
-const transport = [
-  { icon: '🚗', mode: 'Driving', detail: '[EDIT ME — parking info & postcode for sat nav]' },
-  { icon: '🚂', mode: 'Train', detail: '[EDIT ME — nearest station & taxi/rideshare from there]' },
-  { icon: '✈️', mode: 'Flying in?', detail: '[EDIT ME — nearest airport and transfer options]' },
+const details = [
+  {
+    title: 'Dress Code',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="w-5 h-5">
+        <path d="M12 2L8 6H4l2 4-4 12h20L18 10l2-4h-4L12 2z" />
+      </svg>
+    ),
+    body: 'We kindly invite our guests to dress in formal attire. As our wedding party are wearing specific colours, male guests are kindly asked to avoid wearing light blue. Female guests are kindly asked to avoid wearing brown, gold or taupe.',
+  },
+  {
+    title: 'The Menu',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="w-5 h-5">
+        <path d="M3 11l19-9-9 19-2-8-8-2z" />
+      </svg>
+    ),
+    body: "We're so excited to celebrate our special day with you! Following the ceremony, we'll be hosting a seated BBQ reception. Please note that a single meat option will be served as part of the meal. If you have any dietary requirements or special preferences, please let us know in advance so we can ensure suitable alternatives are available for you.",
+  },
+  {
+    title: 'Parking',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="w-5 h-5">
+        <rect x="3" y="3" width="18" height="18" rx="2" />
+        <path d="M9 17V7h4a3 3 0 0 1 0 6H9" />
+      </svg>
+    ),
+    body: 'Parking at the church is limited, however there is a small car park close by on the roundabout. For the reception, there is plenty of parking available at the golf course at Pyrford Lakes.',
+  },
 ];
 
 export default function Travel() {
@@ -37,7 +61,7 @@ export default function Travel() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
           >
-            Getting here
+            On the day
           </motion.p>
           <motion.h2
             className="font-display italic text-espresso text-[clamp(3rem,8vw,6rem)]"
@@ -46,95 +70,62 @@ export default function Travel() {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            Travel &amp; Stay
+            Wedding Venues
           </motion.h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-10 md:gap-16">
-          {/* Venue column */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-          >
-            <h3 className="font-display italic text-espresso text-3xl md:text-4xl mb-5">
-              The Venue
-            </h3>
-
-            {/* Address card */}
-            <div className="bg-white/70 rounded-2xl p-6 mb-6 border border-white">
-              <p className="font-sans text-xs tracking-[0.2em] uppercase text-terracotta mb-2">
-                Address
+        {/* Venue cards */}
+        <div className="grid md:grid-cols-2 gap-8 mb-16">
+          {venues.map((venue, i) => (
+            <motion.div
+              key={venue.label}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: i * 0.15 }}
+            >
+              <p className="font-sans text-[10px] tracking-[0.25em] uppercase text-terracotta mb-3">
+                {venue.label}
               </p>
-              <p className="font-sans text-sm text-espresso/75 leading-relaxed">
-                [EDIT ME — Venue Name]<br />
-                [Street Address]<br />
-                [Town, County]<br />
-                [Postcode]
-              </p>
-            </div>
+              <div className="bg-white/70 rounded-2xl p-6 mb-4 border border-white">
+                <h3 className="font-display italic text-espresso text-2xl mb-1">{venue.name}</h3>
+                <p className="font-sans text-sm text-espresso/65 mb-2">{venue.address}</p>
+                <p className="font-sans text-xs text-terracotta font-medium">{venue.time}</p>
+              </div>
+              <div className="rounded-2xl overflow-hidden h-52 border border-white/60 shadow-sm">
+                <iframe
+                  src={venue.mapSrc}
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title={`Map for ${venue.name}`}
+                />
+              </div>
+            </motion.div>
+          ))}
+        </div>
 
-            {/* Map placeholder */}
-            <div className="rounded-2xl overflow-hidden h-56 bg-sage/15 flex flex-col items-center justify-center border border-sage/25">
-              <span className="text-3xl mb-2" aria-hidden="true">📍</span>
-              <p className="font-sans text-xs text-espresso/40 text-center px-4">
-                [EDIT ME] Replace this div with a Google Maps embed.<br />
-                <span className="opacity-70">iframe src="https://maps.google.com/maps?q=your+venue+address&output=embed"</span>
-              </p>
-            </div>
-          </motion.div>
-
-          {/* Hotels & transport column */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-          >
-            <h3 className="font-display italic text-espresso text-3xl md:text-4xl mb-5">
-              Where to Stay
-            </h3>
-
-            <div className="flex flex-col gap-3 mb-8">
-              {hotels.map((hotel, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className="bg-white/70 rounded-xl p-5 border border-white"
-                >
-                  <div className="flex items-start justify-between gap-3 mb-1">
-                    <h4 className="font-sans font-semibold text-espresso text-sm">{hotel.name}</h4>
-                    <span className="font-sans text-[10px] text-terracotta tracking-wide flex-shrink-0">
-                      {hotel.distance}
-                    </span>
-                  </div>
-                  <p className="font-sans text-xs text-espresso/60 leading-relaxed">{hotel.desc}</p>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Transport */}
-            <div className="bg-espresso/5 rounded-2xl p-5 border border-espresso/10">
-              <p className="font-sans text-[10px] tracking-[0.25em] uppercase text-espresso/50 mb-4">
-                Getting here
-              </p>
-              <ul className="flex flex-col gap-3">
-                {transport.map((t) => (
-                  <li key={t.mode} className="flex gap-3 items-start">
-                    <span className="text-lg leading-tight" aria-hidden="true">{t.icon}</span>
-                    <div>
-                      <span className="font-sans font-semibold text-espresso text-xs">{t.mode}: </span>
-                      <span className="font-sans text-xs text-espresso/65 leading-relaxed">{t.detail}</span>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </motion.div>
+        {/* Detail cards */}
+        <div className="grid md:grid-cols-3 gap-6">
+          {details.map((d, i) => (
+            <motion.div
+              key={d.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
+              className="bg-white/70 rounded-2xl p-6 border border-white"
+            >
+              <div className="w-10 h-10 rounded-full bg-terracotta text-cream flex items-center justify-center mb-4">
+                {d.icon}
+              </div>
+              <h4 className="font-display italic text-espresso text-xl mb-3">{d.title}</h4>
+              <p className="font-sans text-xs text-espresso/65 leading-relaxed">{d.body}</p>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
