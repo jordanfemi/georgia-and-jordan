@@ -57,15 +57,6 @@ export default function RSVP() {
           >
             RSVP
           </motion.h2>
-          <motion.p
-            className="text-cream/40 font-sans text-sm"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-          >
-            Please respond by [EDIT ME — e.g. 1st June 2026]
-          </motion.p>
         </div>
 
         <AnimatePresence mode="wait">
