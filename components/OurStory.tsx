@@ -2,42 +2,83 @@
 import { useRef } from 'react';
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 
+const icons: Record<string, React.ReactNode> = {
+  sparkle: (
+    <svg viewBox="0 0 24 24" fill="white" className="w-5 h-5">
+      <path d="M12 2l1.5 6.5L20 10l-6.5 1.5L12 18l-1.5-6.5L4 10l6.5-1.5z" />
+    </svg>
+  ),
+  heart: (
+    <svg viewBox="0 0 24 24" fill="white" className="w-5 h-5">
+      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+    </svg>
+  ),
+  globe: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" className="w-5 h-5">
+      <circle cx="12" cy="12" r="10" />
+      <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+    </svg>
+  ),
+  baby: (
+    <svg viewBox="0 0 24 24" fill="white" className="w-5 h-5">
+      <circle cx="12" cy="5" r="3" />
+      <path d="M5 22v-3a7 7 0 0 1 14 0v3" />
+      <path d="M8 22v-1a4 4 0 0 1 8 0v1" />
+    </svg>
+  ),
+  ring: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" className="w-5 h-5">
+      <circle cx="12" cy="14" r="7" />
+      <path d="M9 14a3 3 0 0 1 6 0" />
+      <path d="M8.5 7.5 9.5 3h5l1 4.5" />
+      <path d="M8.5 7.5h7" />
+    </svg>
+  ),
+  rings: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" className="w-5 h-5">
+      <circle cx="8" cy="14" r="5" />
+      <circle cx="16" cy="14" r="5" />
+      <path d="M11 14a3 3 0 0 1 2 0" />
+    </svg>
+  ),
+};
+
 const events = [
   {
     year: 'Late 2014',
     title: 'Love at First Sight',
     body: 'Georgia met Jordan at the end of 2014 — she was just 18. It was love at first sight, and they both knew it from the very beginning.',
-    emoji: '✨',
+    icon: 'sparkle',
   },
   {
     year: 'February 2015',
     title: 'We Made It Official',
-    body: 'Valentine\'s month felt like the perfect time to make it official. They became a couple in February 2015 and have been inseparable ever since.',
-    emoji: '❤️',
+    body: "Valentine's month felt like the perfect time to make it official. They became a couple in February 2015 and have been inseparable ever since.",
+    icon: 'heart',
   },
   {
     year: '2015 – 2020',
     title: 'Seeing the World Together',
-    body: 'For the first five years they threw themselves into adventure — travelling the world and making memories at every turn. Their favourite destination? Mexico. (And they\'re heading back for the honeymoon.)',
-    emoji: '🌍',
+    body: "For the first five years they threw themselves into adventure — travelling the world and making memories at every turn. Their favourite destination? Mexico. (And they're heading back for the honeymoon.)",
+    icon: 'globe',
   },
   {
     year: 'February 2023',
     title: 'Gabriella Arrives',
     body: 'Their daughter Gabriella was born in February 2023 — a moment they had longed for. Jordan took to fatherhood instantly, and their little family of three was complete.',
-    emoji: '👶',
+    icon: 'baby',
   },
   {
     year: '16 September 2025',
     title: 'She Said Yes!',
     body: 'Under the Sicilian sun, Jordan got down on one knee and asked the question Georgia had been dreaming of. The proposal was everything she could have imagined — and of course, she said YES.',
-    emoji: '💍',
+    icon: 'ring',
   },
   {
     year: '21 · 08 · 26',
     title: 'Now We Do',
     body: "After more than ten years of love, laughter, travel, and parenthood — it's finally time. We can't wait to celebrate with every single one of you.",
-    emoji: '💕',
+    icon: 'rings',
   },
 ];
 
@@ -64,7 +105,7 @@ function TimelineCard({
             className="w-10 h-10 rounded-full bg-terracotta flex items-center justify-center text-base shadow-md"
             aria-hidden="true"
           >
-            {event.emoji}
+            {icons[event.icon]}
           </motion.div>
           {index < events.length - 1 && (
             <div className="w-px flex-1 bg-champagne mt-2 min-h-[2rem]" />
@@ -119,7 +160,7 @@ function TimelineCard({
             className="w-12 h-12 rounded-full bg-terracotta flex items-center justify-center text-xl shadow-md z-10 relative"
             aria-hidden="true"
           >
-            {event.emoji}
+            {icons[event.icon]}
           </motion.div>
         </div>
 
