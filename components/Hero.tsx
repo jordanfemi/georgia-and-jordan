@@ -150,7 +150,7 @@ function HeartPhoto({
 /* ─── Name word — clip reveal ─────────────────────────────────────────────── */
 function NameWord({ children, delay, className = '' }: { children: React.ReactNode; delay: number; className?: string }) {
   return (
-    <div style={{ overflow: 'hidden' }}>
+    <div style={{ overflow: 'hidden', paddingBottom: '0.15em', marginBottom: '-0.15em' }}>
       <motion.div className={className} initial={{ y: '110%' }} animate={{ y: 0 }}
         transition={{ duration: 0.85, ease: [0.25, 0.46, 0.45, 0.94], delay }}>
         {children}

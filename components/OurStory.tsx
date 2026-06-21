@@ -45,13 +45,13 @@ const icons: Record<string, React.ReactNode> = {
 
 const events = [
   {
-    year: 'Late 2014',
+    year: 'End of 2014',
     title: 'Love at First Sight',
     body: 'Georgia met Jordan at the end of 2014 — she was just 18. It was love at first sight, and they both knew it from the very beginning.',
     icon: 'sparkle',
   },
   {
-    year: 'February 2015',
+    year: '15 February 2015',
     title: 'We Made It Official',
     body: "Valentine's month felt like the perfect time to make it official. They became a couple in February 2015 and have been inseparable ever since.",
     icon: 'heart',
@@ -63,7 +63,7 @@ const events = [
     icon: 'globe',
   },
   {
-    year: 'February 2023',
+    year: '24 February 2023',
     title: 'Gabriella Arrives',
     body: 'Their daughter Gabriella was born in February 2023 — a moment they had longed for. Jordan took to fatherhood instantly, and their little family of three was complete.',
     icon: 'baby',
@@ -75,7 +75,7 @@ const events = [
     icon: 'ring',
   },
   {
-    year: '21 · 08 · 26',
+    year: '21 August 2026',
     title: 'Now We Do',
     body: "After more than ten years of love, laughter, travel, and parenthood — it's finally time. We can't wait to celebrate with every single one of you.",
     icon: 'rings',
