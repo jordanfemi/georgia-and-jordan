@@ -19,19 +19,11 @@ export default function RSVP() {
     setFormState('submitting');
     const data = new FormData(e.currentTarget);
 
-    const payload = {
-      name: data.get('name') as string,
-      attending: data.get('attending') as string,
-      guests: Number(data.get('guests') ?? 1),
-      dietary: (data.get('dietary') as string) ?? '',
-      message: (data.get('message') as string) ?? '',
-    };
-
     try {
-      const res = await fetch('/api/rsvp', {
+      const res = await fetch('/', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(data as unknown as Record<string, string>).toString(),
       });
       if (!res.ok) throw new Error('non-ok response');
       setFormState('success');
@@ -100,6 +92,8 @@ export default function RSVP() {
             <motion.form
               key="form"
               onSubmit={handleSubmit}
+              name="rsvp"
+              data-netlify="true"
               className="flex flex-col gap-6"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -107,6 +101,7 @@ export default function RSVP() {
               transition={{ duration: 0.6, delay: 0.2 }}
               noValidate
             >
+              <input type="hidden" name="form-name" value="rsvp" />
               {/* Name */}
               <div>
                 <label htmlFor="rsvp-name" className={label}>
