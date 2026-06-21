@@ -23,13 +23,10 @@ const photos: { src: string; alt: string; tall?: boolean }[] = [
   { src: '/photos/613ca291-5db1-405c-9032-641d05faeb7a.jpeg', alt: 'Georgia and Jordan', tall: true },
   { src: '/photos/photo-2.jpeg', alt: 'Golden hour in Italy' },
   { src: '/photos/827627dd-1175-490f-a6c0-2c4aff856d5a.jpeg', alt: 'Georgia and Jordan' },
-  { src: '/photos/8cbe712b-af63-4144-b6d0-62b8ba60c1b1.jpeg', alt: 'Georgia and Jordan', tall: true },
   { src: '/photos/c7d0ad3e-0504-4978-86e9-5d6ce26af2f1.jpeg', alt: 'Georgia and Jordan' },
-  { src: '/photos/d76255e0-6b72-4999-b7f3-7020e1f32e10.jpeg', alt: 'Georgia and Jordan' },
-  { src: '/photos/ec123b56-1e87-48b3-9346-5d398ae5ad49.jpeg', alt: 'Georgia and Jordan', tall: true },
+  { src: '/photos/d76255e0-6b72-4999-b7f3-7020e1f32e10.jpeg', alt: 'Georgia and Jordan', tall: true },
   { src: '/photos/f67d5fcf-5102-4eab-ab4d-d659dd9d0161.jpeg', alt: 'Georgia and Jordan' },
   { src: '/photos/photo-5 .jpeg', alt: 'Georgia and Jordan' },
-  { src: '/photos/photo-6 .jpeg', alt: 'Georgia and Jordan' },
 ];
 
 function PhotoCard({
