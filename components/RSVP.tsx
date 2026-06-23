@@ -5,9 +5,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 const FORMSPREE = 'https://formspree.io/f/xlgyrknp';
 
 const input =
-  'w-full rounded-xl border border-champagne bg-white/10 px-4 py-3 font-sans text-cream text-sm placeholder:text-cream/25 focus:outline-none focus:ring-2 focus:ring-terracotta/50 transition';
+  'w-full rounded-xl border border-espresso/20 bg-white/40 px-4 py-3 font-sans text-espresso text-sm placeholder:text-espresso/30 focus:outline-none focus:ring-2 focus:ring-terracotta/50 transition';
 
-const label = 'block font-sans text-[10px] tracking-[0.25em] uppercase text-cream/50 mb-2';
+const label = 'block font-sans text-[10px] tracking-[0.25em] uppercase text-espresso/60 mb-2';
 
 type FormState = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -34,7 +34,7 @@ export default function RSVP() {
   }
 
   return (
-    <section id="rsvp" className="bg-espresso py-24 px-6">
+    <section id="rsvp" className="py-24 px-6" style={{ backgroundColor: '#f7e4ca' }}>
       <div className="max-w-lg mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
@@ -47,7 +47,7 @@ export default function RSVP() {
             We hope you can make it
           </motion.p>
           <motion.h2
-            className="font-display italic text-cream text-[clamp(3rem,8vw,6rem)] mb-3"
+            className="font-display italic text-espresso text-[clamp(3rem,8vw,6rem)] mb-3"
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -67,8 +67,8 @@ export default function RSVP() {
               className="text-center py-12"
             >
               <div className="text-5xl mb-5" aria-hidden="true">🎉</div>
-              <h3 className="font-display italic text-cream text-4xl mb-3">Thank you!</h3>
-              <p className="text-cream/55 font-sans text-sm leading-relaxed">
+              <h3 className="font-display italic text-espresso text-4xl mb-3">Thank you!</h3>
+              <p className="text-espresso/70 font-sans text-sm leading-relaxed">
                 {attending === 'yes'
                   ? "We're so excited to celebrate with you. See you on the big day!"
                   : "We'll miss you so much — thank you for letting us know."}
@@ -108,7 +108,7 @@ export default function RSVP() {
                       className={`flex-1 flex items-center justify-center gap-2 py-3.5 rounded-xl border cursor-pointer font-sans text-sm transition-all select-none ${
                         attending === val
                           ? 'border-terracotta bg-terracotta text-cream shadow-md'
-                          : 'border-cream/15 text-cream/50 hover:border-terracotta/40 hover:text-cream/80'
+                          : 'border-espresso/20 text-espresso/50 hover:border-terracotta/60 hover:text-espresso/80'
                       }`}
                     >
                       <input

@@ -20,7 +20,7 @@ export default function Nav() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const textColor = scrolled ? 'text-espresso' : 'text-cream';
+  const textColor = 'text-espresso';
 
   return (
     <motion.header

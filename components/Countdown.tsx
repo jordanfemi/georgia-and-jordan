@@ -69,10 +69,13 @@ function Colon() {
 }
 
 export default function Countdown() {
-  const [timeLeft, setTimeLeft] = useState<TimeLeft>(getTimeLeft);
+  const [timeLeft, setTimeLeft] = useState<TimeLeft>({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+  const [mounted, setMounted] = useState(false);
   const rafRef = useRef<number>(0);
 
   useEffect(() => {
+    setMounted(true);
+    setTimeLeft(getTimeLeft());
     let last = -1;
     const tick = () => {
       const now = Math.floor(Date.now() / 1000);

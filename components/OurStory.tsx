@@ -47,7 +47,7 @@ const events = [
   {
     year: 'End of 2014',
     title: 'Love at First Sight',
-    body: 'Georgia met Jordan at the end of 2014 — she was just 18. It was love at first sight, and they both knew it from the very beginning.',
+    body: 'It was love at first sight when Georgia and Jordan first met on a night out at the end of 2014. From the moment they met, they both knew this was something special.',
     icon: 'sparkle',
   },
   {
@@ -108,7 +108,7 @@ function TimelineCard({
             {icons[event.icon]}
           </motion.div>
           {index < events.length - 1 && (
-            <div className="w-px flex-1 bg-champagne mt-2 min-h-[2rem]" />
+            <div className="w-px flex-1 bg-espresso/20 mt-2 min-h-[2rem]" />
           )}
         </div>
         <motion.article
@@ -123,7 +123,7 @@ function TimelineCard({
           <h3 className="font-display text-2xl italic text-espresso mt-0.5 mb-1.5">
             {event.title}
           </h3>
-          <p className="text-espresso/65 font-sans text-sm leading-relaxed">{event.body}</p>
+          <p className="text-espresso/75 font-sans text-sm leading-relaxed">{event.body}</p>
         </motion.article>
       </div>
 
@@ -136,7 +136,7 @@ function TimelineCard({
               initial={{ opacity: 0, x: -50 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.7, ease: 'easeOut' }}
-              className="bg-white rounded-2xl p-6 shadow-sm border border-champagne max-w-sm text-right"
+              className="rounded-2xl p-6 shadow-sm border border-white/60 max-w-sm text-right" style={{ backgroundColor: '#f6e4c6' }}
             >
               <span className="text-terracotta text-[10px] font-sans tracking-[0.25em] uppercase">
                 {event.year}
@@ -144,7 +144,7 @@ function TimelineCard({
               <h3 className="font-display text-2xl italic text-espresso mt-0.5 mb-2">
                 {event.title}
               </h3>
-              <p className="text-espresso/65 font-sans text-sm leading-relaxed">{event.body}</p>
+              <p className="text-espresso/75 font-sans text-sm leading-relaxed">{event.body}</p>
             </motion.article>
           ) : (
             <div />
@@ -171,7 +171,7 @@ function TimelineCard({
               initial={{ opacity: 0, x: 50 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.7, ease: 'easeOut' }}
-              className="bg-white rounded-2xl p-6 shadow-sm border border-champagne max-w-sm"
+              className="rounded-2xl p-6 shadow-sm border border-white/60 max-w-sm" style={{ backgroundColor: '#f6e4c6' }}
             >
               <span className="text-terracotta text-[10px] font-sans tracking-[0.25em] uppercase">
                 {event.year}
@@ -179,7 +179,7 @@ function TimelineCard({
               <h3 className="font-display text-2xl italic text-espresso mt-0.5 mb-2">
                 {event.title}
               </h3>
-              <p className="text-espresso/65 font-sans text-sm leading-relaxed">{event.body}</p>
+              <p className="text-espresso/75 font-sans text-sm leading-relaxed">{event.body}</p>
             </motion.article>
           ) : (
             <div />
@@ -201,7 +201,7 @@ export default function OurStory() {
   const lineScaleY = useTransform(scrollYProgress, [0.05, 0.95], [0, 1]);
 
   return (
-    <section id="story" ref={sectionRef} className="bg-cream py-24 px-6">
+    <section id="story" ref={sectionRef} className="bg-white py-24 px-6">
       <div className="max-w-5xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16 md:mb-24">
@@ -229,7 +229,7 @@ export default function OurStory() {
           {/* Animated vertical line (desktop only) */}
           <div
             ref={lineRef}
-            className="hidden md:block absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-champagne"
+            className="hidden md:block absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-espresso/20"
             aria-hidden="true"
           >
             <motion.div
