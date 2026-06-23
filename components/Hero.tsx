@@ -114,7 +114,7 @@ function HeartPhoto({
   // Width/height must preserve the photo's native aspect ratio to avoid stretching.
   imgX?: number; imgY?: number; imgW?: number; imgH?: number;
 }) {
-  const id = `hc-${src.replace(/\W/g, '')}`;
+  const id = `hc-${src.replace(/\W/g, '')}-${delay}`;
   const HEART = 'M100 165 C 38 125 8 88 8 57 C 8 30 28 12 55 12 C 70 12 84 20 100 38 C 116 20 130 12 145 12 C 172 12 192 30 192 57 C 192 88 162 125 100 165 Z';
   const useAspect = imgW === 200 && imgH === 185;
   return (
@@ -128,16 +128,16 @@ function HeartPhoto({
         animate={{ y: [0, -10, 0] }}
         transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: floatOffset }}
       >
-        <svg viewBox="0 0 200 185" className="w-44 h-44 md:w-56 md:h-56 lg:w-72 lg:h-72 drop-shadow-xl" aria-label={alt}>
+        <svg viewBox="0 0 200 185" className="w-44 h-44 md:w-56 md:h-56 lg:w-72 lg:h-72 drop-shadow-xl" aria-label={alt} style={{ overflow: 'hidden' }}>
           <defs>
-            <clipPath id={id}><path d={HEART} /></clipPath>
+            <mask id={id}>
+              <path d={HEART} fill="white" />
+            </mask>
           </defs>
           <image
             href={src}
             x={imgX} y={imgY} width={imgW} height={imgH}
-            clipPath={`url(#${id})`}
-            // "xMidYMid slice" for default fill; "none" when dimensions are manually specified
-            // (they already encode the correct aspect ratio so no stretching occurs)
+            mask={`url(#${id})`}
             preserveAspectRatio={useAspect ? 'xMidYMid slice' : 'none'}
           />
           <path d={HEART} fill="none" stroke="rgba(242,213,200,0.5)" strokeWidth="3" />
@@ -266,7 +266,7 @@ export default function Hero() {
       {/* ── Mobile: hearts above, text below ────────────────────────────────── */}
       <div className="flex md:hidden flex-col items-center gap-8 w-full relative z-10">
         <div className="flex items-end justify-center gap-6">
-          <HeartPhoto src="/photos/left heart .jpg" alt="Georgia and Jordan" delay={0.3} rotate={-5} floatOffset={0} />
+          <HeartPhoto src="/photos/left heart .jpg" alt="Georgia and Jordan" delay={0.35} rotate={-5} floatOffset={0} />
           <HeartPhoto src="/photos/photo-3.jpeg" alt="Georgia, Jordan and their baby" delay={0.45} rotate={5} floatOffset={1.2} />
         </div>
         <div className="flex flex-col items-center text-center">

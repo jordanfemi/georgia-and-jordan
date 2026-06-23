@@ -95,7 +95,14 @@ export default function Nav() {
                     <a
                       href={l.href}
                       className="font-sans text-base text-espresso tracking-widest uppercase hover:text-terracotta transition-colors"
-                      onClick={() => setOpen(false)}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setOpen(false);
+                        setTimeout(() => {
+                          const target = document.querySelector(l.href);
+                          if (target) target.scrollIntoView({ behavior: 'smooth' });
+                        }, 300);
+                      }}
                     >
                       {l.label}
                     </a>
